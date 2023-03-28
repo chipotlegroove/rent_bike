@@ -1,0 +1,19 @@
+<h1>Deja tu reseña</h1>
+  <form action="/enviar-reseña" method="POST">
+    <label for="nombre">Nombre:</label>
+    <input type="text" id="nombre" name="nombre" required><br>
+
+    <label for="calificacion">Calificación:</label>
+    <select id="calificacion" name="calificacion">
+      <option value="5">5 estrellas</option>
+      <option value="4">4 estrellas</option>
+      <option value="3">3 estrellas</option>
+      <option value="2">2 estrellas</option>
+      <option value="1">1 estrella</option>
+    </select><br>
+
+    <label for="comentario">Comentario:</label><br><br>
+    <textarea id="comentario" name="comentario" rows="4" cols="50"></textarea><br>
+
+    <button type="submit">Enviar</button>
+  </form>

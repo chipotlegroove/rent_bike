@@ -1,0 +1,29 @@
+<form>
+  <label for="nombre">Nombre del cliente:</label>
+  <input type="text" id="nombre" name="nombre"><br><br>
+  
+  <label for="bicicleta">Bicicleta:</label>
+  <input type="text" readonly value="Aqui va el nombre de la bici"><br><br>
+
+  <label for="fecha">Fecha:</label>
+  <input type="date" id="fecha" name="fecha"><br><br>
+  
+  <label for="tiempo-inicial">Hora de inicio:</label>
+  <input type="time" id="tiempo-inicial" name="tiempo-inicial"><br><br>
+  
+  <label for="tiempo-final">Hora de fin:</label>
+  <input type="time" id="tiempo-final" name="tiempo-final"><br><br>
+
+  <label for="precio">Precio:</label>
+  <input type="text" readonly value="Aqui va el precio de la bicicleta multiplicado por las horas"><br><br>
+  
+</form>
+ 
+<button onclick="pagar()">Pagar</button>
+
+<script>
+    function pagar() {
+        alert("Aqui se paga con paypal o stripe");
+    }
+    
+</script>
