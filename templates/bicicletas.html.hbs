@@ -1,3 +1,4 @@
+<h5><a href="/">Inicio</a></h5>
 <table>
   <thead>
     <tr>
@@ -15,7 +16,11 @@
       <td>$55.00</td>
       <td>10</td>
       <td>
-        <button type="button">Rentar</button>
+      {{#if logged}}
+        <button type="button" onclick="location.href = '/renta';">Rentar</button>
+      {{else}}
+        <button type="button" onclick="location.href = '/login';">Inicia sesión para rentar esta bicicleta</button>
+      {{/if}}
       </td>
     </tr>
     <tr>
@@ -24,7 +29,11 @@
       <td>$47.50</td>
       <td>5</td>
       <td>
-        <button type="button">Rentar</button>
+      {{#if logged}}
+        <button type="button" onclick="location.href = '/renta';">Rentar</button>
+      {{else}}
+        <button type="button" onclick="location.href = '/login';">Inicia sesión para rentar esta bicicleta</button>
+      {{/if}}        
       </td>
     </tr>
     <tr>
@@ -33,7 +42,11 @@
       <td>$40.00</td>
       <td>3</td>
       <td>
-        <button type="button">Rentar</button>
+      {{#if logged}}
+        <button type="button" onclick="location.href = '/renta';">Rentar</button>
+      {{else}}
+        <button type="button" onclick="location.href = '/login';">Inicia sesión para rentar esta bicicleta</button>
+      {{/if}}
       </td>
     </tr>
   </tbody>

@@ -80,10 +80,25 @@ fn register_post(jar: &CookieJar<'_>, datos:Form<Register>) -> Redirect {
 }
 
 #[get("/bicicletas")]
-fn bicicletas() -> Template {
-    Template::render("bicicletas", context! {
-        
-    })
+fn bicicletas(jar: &CookieJar<'_>) -> Template {
+    match jar.get("logged_in") {
+        Some(cookie) => {
+            if cookie.value() == "true" {
+                Template::render("bicicletas", context! {
+                    logged: true,
+                })
+            } else {
+                Template::render("bicicletas", context! {
+                    logged: false
+                })
+            }
+        },
+        None => {
+            Template::render("bicicletas", context! {
+                logged: false
+            })
+        }
+    }
 }
 
 #[get("/renta")]
@@ -98,6 +113,11 @@ fn reseña() -> Template {
     Template::render("reseña", context! {
         
     })
+}
+
+#[post("/enviar-reseña")]
+fn enviar_reseña() -> Redirect {
+    Redirect::to("/")
 }
 
 #[get("/faq")]
@@ -115,8 +135,14 @@ fn logout(jar: &CookieJar<'_>) -> Redirect {
     Redirect::to("/")
 }
 
+#[get("/historial")]
+fn historial() -> Template {
+    Template::render("historial", context!{})
+}
+
+
 #[launch]
 fn rocket() -> _ {
-    rocket::build().mount("/", routes![index, register, register_post, login, bicicletas, renta, reseña, faq, post_login, logout])
+    rocket::build().mount("/", routes![index, register, register_post, login, bicicletas, renta, reseña, faq, post_login, logout, enviar_reseña, historial])
     .attach(Template::fairing())
 }

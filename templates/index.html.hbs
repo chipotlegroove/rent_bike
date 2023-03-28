@@ -1,6 +1,7 @@
 <h1>Bienvenido a Renta Baicas</h1>
 {{#if logged}}
 <h3>Bienvenido {{username}}</h3>
+<h3><a href="/historial">Historial de rentas</a></h3>
 {{else}}
 <h3>Para poder rentar una bicicleta, por favor <a href="/login">inicia sesión</a> o <a href="/register">registrate</a>.</h3>
 {{/if}}
@@ -9,5 +10,6 @@
 <h3>Tiene algun comentario que hacer acerca de nuestro servicio? <a href="/reseña">Dejénos una reseña!</a></h3>
 
 <h3>Tiene alguna duda con nuestro servicio? Intente nuestro <a href="#" onclick="alert('aqui se abre el chatbot')">chatbot</a>  o revise la seccion de <a href="/faq">preguntas frecuentes!</a> </h3>
-
+{{#if logged}}
 <h4><a href="/logout">Cerrar sesión</a></h4>
+{{/if}}
