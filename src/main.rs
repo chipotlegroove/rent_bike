@@ -9,8 +9,6 @@ fn index(jar: &CookieJar<'_>) -> Template {
     match jar.get("logged_in") {
         Some(cookie) => {
             if cookie.value() == "true" {
-                println!("{}",jar.get("logged_in").unwrap().value());
-                println!("{}",jar.get("username").unwrap().value());
                 Template::render("index", context! {
                     logged: true,
                     username: jar.get("username").unwrap().value()
@@ -48,7 +46,6 @@ fn post_login(jar: &CookieJar<'_>, datos:Form<Login>) -> Redirect {
     jar.add(Cookie::new("username", datos.username.clone()));
     jar.add(Cookie::new("password", datos.password.clone()));
     jar.add(Cookie::new("logged_in","true"));
-    println!("{} {}", datos.username, datos.password);
     Redirect::to("/")
 }
 
@@ -75,7 +72,6 @@ fn register_post(jar: &CookieJar<'_>, datos:Form<Register>) -> Redirect {
     jar.add(Cookie::new("email", datos.email.clone()));
     jar.add(Cookie::new("password", datos.password.clone()));
     jar.add(Cookie::new("logged_in","true"));
-    println!("{} {} {} {}", datos.nombre, datos.username, datos.email, datos.password);
     Redirect::to("/")
 }
 
